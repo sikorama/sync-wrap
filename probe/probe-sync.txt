@@ -1,0 +1,36 @@
+10 REM probe-sync: read-only, launches only ".sync5 -h" (help, no connection)
+20 CLS
+30 PRINT "1 read nextsync.cfg"
+40 ON ERROR GO TO 130
+50 OPEN #5,"c:/sys/config/nextsync.cfg"
+60 INPUT #5;LINE a$
+70 PRINT "  len ";LEN a$;" [";a$;"]"
+80 IF LEN a$>0 THEN PRINT "  last code ";CODE a$(LEN a$);" first ";CODE a$(1)
+90 INPUT #5;LINE b$
+100 PRINT "  2nd line len ";LEN b$;" [";b$;"]"
+110 CLOSE #5
+120 GO TO 160
+130 ERROR TO e,l,s
+140 PRINT "  error ";e;" line ";l;" stmt ";s
+150 ON ERROR GO TO 160:CLOSE #5
+160 ON ERROR
+170 PRINT "press a key":PAUSE 0
+180 CLS:PRINT "2 launch with .$ (help only)"
+190 LET c$="sync5 -h"
+200 ON ERROR GO TO 230
+210 .$ c$
+220 GO TO 250
+230 ERROR TO e,l,s
+240 PRINT "  error ";e;" line ";l;" stmt ";s
+250 ON ERROR
+260 PRINT "back in BASIC after variant 1 (press a key)":PAUSE 0
+270 CLS:PRINT "3 variant with leading dot"
+280 LET c$=".sync5 -h"
+290 ON ERROR GO TO 320
+300 .$ c$
+310 GO TO 340
+320 ERROR TO e,l,s
+330 PRINT "  error ";e;" line ";l;" stmt ";s
+340 ON ERROR
+350 PRINT "back in BASIC after variant 2 (press a key)":PAUSE 0
+360 PRINT "done"
