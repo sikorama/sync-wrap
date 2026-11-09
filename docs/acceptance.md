@@ -21,6 +21,15 @@ Prerequisite: `build/sync-wrap.bas` copied to the Next with `.sync5`, `.sync5` p
 - **A3** Empty and `-x` are refused; the saved address is unchanged.
 - **A4** A typed address is saved and appears on the screen afterwards; `.sync5` was not launched by the save.
 - **A5** The screen tells the user they are responsible for typing the address correctly.
+- **A6** After `.sync5 <address>` has saved it, the address appears on the Summary screen (the file has no end of line).
+
+## Command preview
+
+- **P1** Under `Command:` the screen shows the `.cd` line (Listen mode with Drive C: or D: only) and the `.sync5` line, updated at each key press, identical to what ENTER launches.
+
+## Speed
+
+- **F1** At 3.5 MHz, a setting key updates its line and the preview without visible redraw delay.
 
 ## Launch
 
