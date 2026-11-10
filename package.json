@@ -5,7 +5,7 @@
   "scripts": {
     "test": "node --test \"test/**/*.test.js\"",
     "build": "mkdir -p build && txt2bas -i sync-wrap.txt -o build/sync-wrap.bas",
-    "build:probe": "mkdir -p build && txt2bas -i probe/probe-files.txt -o build/probe-files.bas && txt2bas -i probe/probe-sync.txt -o build/probe-sync.bas"
+    "build:probe": "mkdir -p build && txt2bas -i probe/probe-files.txt -o build/probe-files.bas && txt2bas -i probe/probe-sync.txt -o build/probe-sync.bas && txt2bas -i probe/probe-cfg.txt -o build/probe-cfg.bas"
   },
   "devDependencies": {
     "txt2bas": "^1.22.3"
